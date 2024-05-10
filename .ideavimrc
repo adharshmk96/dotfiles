@@ -77,3 +77,9 @@ noremap [b :action PreviousTab<CR>
 " move back and forward ctrl + o and ctrl + i
 noremap <C-o> :action Back<CR>
 noremap <C-i> :action Forward<CR>
+
+"" ---- util ----
+" keep visual mode after indenting
+noremap < <gv
+noremap > >gv
+
