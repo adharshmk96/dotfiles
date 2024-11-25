@@ -1,0 +1,102 @@
+[
+  {
+    // global keybindings
+    "bindings": {
+      "ctrl-shift-v": "workspace::ToggleVimMode"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in normal & visual mode
+
+      // line management
+      "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown",
+
+      // cursor movement
+      "g l": "editor::MoveToEndOfLine",
+      "g h": "editor::MoveToBeginningOfLine",
+
+      "space r f": "pane::RevealInProjectPanel",
+      "space s a": "command_palette::Toggle",
+      "space e": "project_panel::ToggleFocus",
+
+      // pane management
+      "space b x": "pane::CloseActiveItem",
+      "space b X": "pane::CloseInactiveItems",
+      "[ b": "pane::ActivatePrevItem",
+      "] b": "pane::ActivateNextItem"
+    }
+  },
+
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+
+      // search
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch",
+      "space s r": [
+        "pane::DeploySearch",
+        {
+          "replace_enabled": true
+        }
+      ],
+      "space /": "project_search::ToggleFocus",
+
+      // code actions
+      "space c f": "editor::Format",
+      "space r n": "editor::Rename",
+      "g d": "editor::GoToDefinition",
+      "g t": "editor::GoToTypeDefinition",
+      "g i": "editor::GoToImplementation",
+      "g r": "editor::FindAllReferences",
+      "space c a": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // visual, visual line & visual block modes
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in insert mode
+    }
+  },
+
+  // others
+  {
+    "context": "project_panel",
+    "bindings": {
+      "space e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !VimWaiting",
+    "bindings": {
+      // Exit insert mode
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+      // ... or other keybindings
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-k": "menu::SelectNext",
+      "ctrl-j": "menu::SelectPrev"
+    }
+  }
+]
